@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>doctor works!</p>
+
+<div>
+    <form>
+        <div>
+            <label for="">Name:
+                <input #Nombre type="text" name="Nombre">
+            </label>
+        </div>
+       
+        <div>
+            <label for="">Apellido:
+                <input #Apellido type="text" name="Apellido">
+            </label>
+        </div>
+        <div>
+            <label for="">Numero de identificacion:
+                <input #NuemeroIdentificacion type="text" name="NuemeroIdentificacion">
+            </label>
+        </div>
+        <div>
+            <label for="">Especialidad
+                <input #Especialidad type="text" name="Especialidad">
+            </label>
+        </div>
+
+        <div>
+            <button (click)="storeDoctor(Nombre,Apellido,NuemeroIdentificacion,Especialidad)">Guardar</button>
+        </div>
+
+        <table>
+            @for (item of doc; track $index) {
+            <tr>
+               
+                    <td>{{item.Nombre}}</td>
+                    <td>{{item.Apellido}}</td>
+                    <td>{{item.NuemeroIdentificacion}}</td>
+                    <td>{{item.Especialidad}}</td>
+                
+            </tr>
+        }
+        </table>
+    </form>
+</div>
+</body>
+</html>

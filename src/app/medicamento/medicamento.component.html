@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="">
+            <div>
+                <label for="">nombre del medicamento
+                    <input #nombre_medicamento type="text" [name]="nombre_medicamento">
+                </label>
+            </div>
+
+            <div>
+                <label for="">Descripcion
+                    <input #Descripcion type="text" [name]="Descripcion">
+                </label>
+            </div>
+
+            <div>
+                <button (click)="storeMEdicamento(nombre_medicamento,Descripcion)">Guardar</button>
+            </div>
+
+            <table>
+                @for (item of med; track $index) {
+                    <tr>
+                        <td>{{item.nombre_medicamento}}</td>
+                        <td>{{item.Descripcion}}</td>
+                    </tr>
+                }
+            </table>
+        </form>
+    </div>
+</body>
+</html>

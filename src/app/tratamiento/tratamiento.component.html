@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="">
+            <div>
+                <label for="" >Duracion: 
+                    <input #Duracion type="text" name="Duracion" >
+                </label>
+            </div>
+
+            <div>
+                Medicamento:
+                <select #medicamento name="" >
+                    
+                        <option value="0">Medicamentos preescritos</option>
+                        @for (item of listMedi; track $index) {
+                            <!-- con el postamn estos nombres que da ejemplo (nombre_medicamento) -->
+                         <option value="{{item.id}}">{{item.nombre_medicamento}}</option>
+                        }
+    
+                </select>
+
+               
+            </div>
+
+            <div>
+                Paciente: 
+                <select #paciente >
+                 
+                    <option value="0">Pacientes registrados</option>
+                        @for (item of listPaciente; track $index) {
+                            <option value="{{item.id}}">{{item.Nombre}}</option>
+                        }
+       
+                </select>
+            </div>
+
+            <div>
+                <button (click)="storeTratamiento(Duracion, medicamento,paciente)">Guardar</button>
+            </div>
+
+
+            <table>
+                @for (item of listDatosG; track $index) {
+                    <tr>
+                        <!-- nombres que da el postman -->
+                        <td>{{item.Duracion}}</td>
+                        <td>{{item.medicamentoPrescrito}}</td>
+                        <td>{{item.Nombre_Pciente}}</td>
+                        <td>{{item.Apellido_Paciente}}</td>
+                        <td>{{item.Diagnostico}}</td>
+                        <td>{{item.Nombre}}</td>
+                        <td>{{item.Apellido}}</td>
+                        <td>{{item.Especialidad}}</td>
+                    </tr>
+                }
+            </table>
+        </form>
+    </div>
+</body>
+</html>

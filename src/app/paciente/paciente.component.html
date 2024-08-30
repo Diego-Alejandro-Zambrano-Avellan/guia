@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>paciente works!</p>
+
+    <div>
+        <form >
+            <div>
+                <label for="">Nombre
+                    <input #Nombre type="text" name="Nombre">
+                </label>
+            </div>
+    
+            <div>
+                <label for="">Apellido
+                    <input #Apellido type="text" name="Apellido">
+                </label>
+            </div>
+
+            <div>
+                <label for="">Numero de identificacion
+                    <input #NuemeroIdentificacion type="text" name="NuemeroIdentificacion">
+                </label>
+            </div>
+
+            
+            <div>
+                <label for="">Diagnostico
+                    <input #Diagnostico type="text" name="Diagnostico">
+                </label>
+            </div>
+
+            <!-- //aqui estoy consumiento el api del doctor que ise en el servicio y ts del paciente  -->
+            <div>
+                Doctor
+                <select #doctor_id for="">
+                    <option value="0">Asigne al doctor</option>
+                    @for (item of listDoctor; track $index) {
+                        <option value="{{item.id}}">{{item.Nombre}}</option>
+                    }
+                </select>
+            </div>
+
+            <div>
+                <button (click)="storePaciente(Nombre,Apellido,NuemeroIdentificacion,Diagnostico,doctor_id)">Guardar</button>
+            </div>
+    
+            <table>
+                <!-- estoy consumiento el servicio que ise que trae los datos del paciente y doctor  -->
+              @for (item of listDatos; track $index) {
+                <tr>
+                    <!-- como renombre en el join uso el nombre del renombre para acceder en caso las columnas se parezcan
+                     por eso mejor date cuenta que sean diferentes
+                     y en esto del td uso los nombres como te da al consultar en el postamn -->
+                    <td>{{item.Nombre_Pciente}}</td>
+                    <td>{{item.Apellido_Paciente}}</td>
+                    <td>{{item.Diagnostico}}</td>
+                    <td>{{item.Nombre}}</td>
+                    <td>{{item.Apellido}}</td>
+                    <td>{{item.Especialidad}}</td>
+                </tr>
+              }
+            </table>
+        </form>
+    </div>
+</body>
+</html>
